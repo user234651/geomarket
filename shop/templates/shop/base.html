@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Магазин геодезических приборов</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <span>GeoShop</span>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main-content">
+        {% block content %}{% endblock %}
+        {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-section">
+        <h4>Производители</h4>
+        <p><a class="footer-a" href="https://leica-geosystems.com/">Leica Geosystems</a></p>
+        <p><a class="footer-a" href="https://www.trimble.com/en">Trimble</a></p>
+        <p><a class="footer-a" href="https://eu.sokkia.com/">Sokkia</a></p>
+        <p><a class="footer-a" href="https://topcon.pro/">Topcon</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>ГОСТы</h4>
+        <p><a class="footer-a" href="https://docs.cntd.ru/document/1200115265">ГОСТ 24846-2014</a></p>
+        <p><a class="footer-a" href="https://docs.cntd.ru/document/1200000384">ГОСТ 21779-82</a></p>
+        <p><a class="footer-a" href="https://docs.cntd.ru/document/901827600">ГОСТ Р 51872-2002</a></p>
+        <p><a class="footer-a" href="https://files.stroyinf.ru/Data/53/5384.pdf">ГОСТ Р 52132-2003</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Контакты</h4>
+        <p>Email: info@geoshop.ru</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+        <p>Адрес: г. Москва, ул. Геодезическая, д. 10</p>
+      </div>
+      <div class="footer-section">
+        <h4 class="footer-section-h4">О геодезии</h4>
+        <p>Геодезия – наука об измерениях размеров и формы Земли, определения положения точек на её поверхности. Применяется в строительстве, картографии и других отраслях, требующих высокой точности измерений.</p>
+      </div>
+    </footer>
+    {% if order_success %}
+      <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-window">
+          <p>Заказ успешно оформлен!</p>
+          <button id="close-popup">Закрыть</button>
+        </div>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const popup = document.getElementById("popup-overlay");
+          const closeBtn = document.getElementById("close-popup");
+
+          if (popup) {
+            popup.style.display = "flex";
+
+            closeBtn.addEventListener("click", function () {
+              popup.style.display = "none";
+              window.location.href = "/";
+            });
+          }
+        });
+      </script>
+    {% endif %}
+  </body>
+</html>

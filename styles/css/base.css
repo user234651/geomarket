@@ -1,0 +1,287 @@
+/* base.css — тёмная тема GeoShop */
+
+/* ===== Общие базовые стили ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #111;
+  color: #eee;
+  line-height: 1.6;
+}
+
+a {
+  color: #6ec1ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ffb347;
+}
+
+/* ===== Header ===== */
+.header {
+  background-color: #1c1c1c;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #6ec1ff;
+  letter-spacing: 1px;
+}
+
+.main-nav {
+  display: flex;
+}
+
+.main-h1 {
+  margin-left: 32px;
+}
+
+/* ===== Main layout ===== */
+.main-content {
+  flex-wrap: wrap;
+  padding: 0.5rem 2rem;
+  gap: 2rem;
+}
+
+/* ===== Продукты ===== */
+.product-list {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card, .item {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover, .item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.product-card h3, .item h3 {
+  color: #fff;
+}
+
+.product-card-img {
+  width: 260px;
+  height: 260px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.product-detail img {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.sidebar-ul {
+  display: flex;
+}
+
+.sidebar-li {
+  margin-left: 50px;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  color: #f0f0f0;
+}
+
+.btn, .checkout-form-button, button {
+  display: inline-block;
+  height: 28px;
+  background-color: #6ec1ff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-form-button {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  margin: 1rem 0;
+}
+
+.btn:hover, .checkout-form-button:hover, button:hover {
+  background-color: #ffb347;
+  color: #111;
+}
+
+/* ===== Product detail ===== */
+.product-detail {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.product-detail h1 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.product-detail .price {
+  color: #6ec1ff;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* ===== Категории (sidebar слева) ===== */
+#sidebar {
+  padding: 1rem;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar li {
+  padding: 0.4rem 0;
+}
+
+#sidebar .selected a {
+  font-weight: bold;
+  color: #ffb347;
+}
+
+/* ===== Checkout form ===== */
+.checkout-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.checkout-form input, .checkout-form select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #444;
+  background-color: #222;
+  color: #eee;
+  border-radius: 4px;
+}
+
+/* ===== Cart table ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+table th, table td {
+  border: 1px solid #333;
+  padding: 0.8rem;
+  text-align: left;
+}
+
+table th {
+  background-color: #222;
+}
+
+.detail-p {
+  margin-left: 50px;
+}
+
+.detail-buttons {
+  display: flex;
+}
+
+/* ===== Footer ===== */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 25px;
+  background-color: #1c1c1c;
+  border-top: 1px solid #333;
+}
+
+.footer-section {
+  max-width: 250px;
+  margin: 1rem;
+}
+
+.footer-section h4 {
+  color: #6ec1ff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-a {
+  color: #bbb;
+  transition: color 0.3s ease;
+}
+
+.footer-a:hover {
+  color: #ffb347;
+}
+
+#popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(28, 28, 28, 0.7); /* тёмный прозрачный фон */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-window {
+  background: #1c1c1c;
+  color: white;
+  padding: 25px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(51, 51, 51, 0.6);
+  max-width: 320px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+}
+
+.popup-window button {
+  width: 80%;
+  margin-top: 18px;
+  /*! padding: 10px; */
+  background-color: #6ec1ff;
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup-window button:hover {
+  background-color: #ffb347;
+}
+
