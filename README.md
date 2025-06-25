@@ -73,6 +73,7 @@ geomarket/
 │
 ├── manage.py
 └── README.md
+```
 
 ## ⚙️ Установка и запуск
 
